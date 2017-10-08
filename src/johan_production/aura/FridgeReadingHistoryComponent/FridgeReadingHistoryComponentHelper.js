@@ -102,7 +102,7 @@
             var config = {
                 type: 'line',
                 data: {
-                    labels: readings.ts,
+                    labels: readings.doorTs,
                     datasets: [{
                         label: 'Door',
                         steppedLine: true,
@@ -135,7 +135,7 @@
                             }
                         }],
                         yAxes: [{
-                            display: true,
+                            display: false,
                             scaleLabel: {
                                 display: true,
                                 labelString: 'Value'
