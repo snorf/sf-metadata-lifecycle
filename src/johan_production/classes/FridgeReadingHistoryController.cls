@@ -18,10 +18,10 @@ public with sharing class FridgeReadingHistoryController {
             this.humidity = new List<Double>();
         }
         public void addReading(Fridge_Reading_History__b  frh) {
-            ts.add(frh.ts__c);
-            door.add(frh.Door__c == 'open' ? 1 : 0);
-            temperature.add(frh.Temperature__c);
-            humidity.add(frh.Humidity__c);
+            ts.add(0,frh.ts__c);
+            door.add(0,frh.Door__c == 'open' ? 1 : 0);
+            temperature.add(0,frh.Temperature__c);
+            humidity.add(0,frh.Humidity__c);
         }
     }
 
@@ -29,7 +29,7 @@ public with sharing class FridgeReadingHistoryController {
     public static String getFridgeReadings(String deviceId) {
         FridgeReading fr = new FridgeReading(deviceId);
         List<Fridge_Reading_History__b> frhs = [SELECT DeviceId__c, Temperature__c, Humidity__c, Door__c, ts__c
-                                                FROM Fridge_Reading_History__b WHERE DeviceId__c =: deviceId];
+                                                FROM Fridge_Reading_History__b WHERE DeviceId__c =: deviceId LIMIT 200];
         Integer i = 0;
         for(Fridge_Reading_History__b frh : frhs) {
             if(Math.mod(i,1) == 0) {
