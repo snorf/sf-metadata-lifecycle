@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
     <applicationVisibilities>
+        <application>Fridge</application>
+        <visible>false</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
         <application>Trailblazer</application>
         <visible>false</visible>
     </applicationVisibilities>
@@ -1331,6 +1335,10 @@
         <recordType>Metric.Progress</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
+    <tabSettings>
+        <tab>Fridge_History</tab>
+        <visibility>None</visibility>
+    </tabSettings>
     <tabSettings>
         <tab>SmartFridge__c</tab>
         <visibility>None</visibility>

@@ -98,13 +98,14 @@
             var ctx = document.getElementById("humidity").getContext("2d");
             window.myLine = new Chart(ctx, config);
         },
-        displayTempData : function(component, event, helper, readings) {
+        displayDoorData : function(component, event, helper, readings) {
             var config = {
                 type: 'line',
                 data: {
                     labels: readings.ts,
                     datasets: [{
                         label: 'Door',
+                        steppedLine: true,
                         fill: false,
                         backgroundColor: 'black',
                         borderColor: 'black',

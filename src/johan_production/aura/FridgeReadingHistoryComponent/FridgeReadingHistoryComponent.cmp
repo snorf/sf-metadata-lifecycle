@@ -2,20 +2,20 @@
  - Created by Johan Karlsteen on 2017-10-08.
  -->
 
-<aura:component description="FridgeReadingHistoryComponent"  controller="FridgeReadingHistoryController">
+<aura:component description="FridgeReadingHistoryComponent" implements="force:appHostable,flexipage:availableForAllPageTypes" access="global"  controller="FridgeReadingHistoryController">
     <ltng:require scripts="{!$Resource.chartjs_270}" />
     <aura:handler name="init" value="{!this}" action="{!c.doinit}"/>
     <div class="container">
         <div class="chart-demo">
             <h2 class="title">Fridge</h2>
             <div>
-                <canvas id="temperature" style="display: block; height: 560px; width: 1120px;" width="640" height="480" class="chartjs-render-monitor"></canvas>
+                <canvas id="temperature" style="display: block; height: 480px; width: 640px;" width="640" height="480" class="chartjs-render-monitor"></canvas>
             </div>
             <div>
-                <canvas id="humidity" style="display: block; height: 560px; width: 1120px;" width="640" height="480" class="chartjs-render-monitor"></canvas>
+                <canvas id="humidity" style="display: block; height: 480px; width: 640px;" width="640" height="480" class="chartjs-render-monitor"></canvas>
             </div>
             <div>
-                <canvas id="door" style="display: block; height: 560px; width: 1120px;" width="640" height="480" class="chartjs-render-monitor"></canvas>
+                <canvas id="door" style="display: block; height: 480px; width: 640px;" width="640" height="480" class="chartjs-render-monitor"></canvas>
             </div>
         </div>
     </div>

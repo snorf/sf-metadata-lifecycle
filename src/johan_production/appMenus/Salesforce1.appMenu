@@ -9,6 +9,10 @@
         <type>StandardAppMenuItem</type>
     </appMenuItems>
     <appMenuItems>
+        <name>Fridge_History</name>
+        <type>CustomTab</type>
+    </appMenuItems>
+    <appMenuItems>
         <name>Dashboards</name>
         <type>StandardAppMenuItem</type>
     </appMenuItems>
