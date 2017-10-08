@@ -271,6 +271,7 @@
     </types>
     <types>
         <members>unfiled$public</members>
+        <members>unfiled$public/Fridge_Readings</members>
         <members>unfiled$public/High_Value_Opportunities</members>
         <members>unfiled$public/Matrix_of_Leads</members>
         <members>unfiled$public/Opportunities_by_Type</members>
