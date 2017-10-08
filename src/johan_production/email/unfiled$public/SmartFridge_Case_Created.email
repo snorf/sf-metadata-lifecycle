@@ -1,0 +1,1 @@
+The case ({![Case].Id}) was opened regarding the Smart Fridge {![Case].Related_Fridge__r.DeviceId__c}. This fridge was recorded at a temperature of {![Case].Related_Fridge__r.Temperature__c}, humidity of {![Case].Related_Fridge__r.Humidity__c}, and a door status of {![Case].Related_Fridge__r.Door__c}.
