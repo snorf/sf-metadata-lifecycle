@@ -52,6 +52,14 @@
         <apexClass>ArchiveTemperatureReadings</apexClass>
         <enabled>false</enabled>
     </classAccesses>
+    <classAccesses>
+        <apexClass>FridgeReadingHistoryController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>PurgeDailyFridgeReadings</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
     <description>Permission Set generated for access to custom object Waypoint for the app Trailblazer</description>
     <fieldPermissions>
         <editable>false</editable>

@@ -23,6 +23,7 @@ global class ArchiveTemperatureReadings implements Schedulable {
                 updates.add(frh);
             }
             Database.insertImmediate(updates);
+            delete toArchive;
         }
     }
 }
