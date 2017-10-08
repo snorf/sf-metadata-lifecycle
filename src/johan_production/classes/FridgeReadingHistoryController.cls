@@ -30,8 +30,12 @@ public with sharing class FridgeReadingHistoryController {
         FridgeReading fr = new FridgeReading(deviceId);
         List<Fridge_Reading_History__b> frhs = [SELECT DeviceId__c, Temperature__c, Humidity__c, Door__c, ts__c
                                                 FROM Fridge_Reading_History__b WHERE DeviceId__c =: deviceId];
+        Integer i = 0;
         for(Fridge_Reading_History__b frh : frhs) {
-            fr.addReading(frh);
+            if(Math.mod(i,10) == 0) {
+                fr.addReading(frh);
+            }
+            i++;
         }
         return JSON.serialize(fr);
     }

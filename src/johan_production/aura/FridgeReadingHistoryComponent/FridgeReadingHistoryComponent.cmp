@@ -7,9 +7,15 @@
     <aura:handler name="init" value="{!this}" action="{!c.doinit}"/>
     <div class="container">
         <div class="chart-demo">
-            <h2 class="title">Chart.Js</h2>
+            <h2 class="title">Fridge</h2>
             <div>
-                <canvas class="myCanvas" id="chart" width="100" height="100"></canvas>
+                <canvas id="temperature" style="display: block; height: 560px; width: 1120px;" width="640" height="480" class="chartjs-render-monitor"></canvas>
+            </div>
+            <div>
+                <canvas id="humidity" style="display: block; height: 560px; width: 1120px;" width="640" height="480" class="chartjs-render-monitor"></canvas>
+            </div>
+            <div>
+                <canvas id="door" style="display: block; height: 560px; width: 1120px;" width="640" height="480" class="chartjs-render-monitor"></canvas>
             </div>
         </div>
     </div>

@@ -10,7 +10,8 @@
         action.setCallback(this, function(response){
             var state = response.getState();
             if (state === "SUCCESS") {
-                helper.displaydata(component,event,helper);
+                var fridgereadings = JSON.parse(response.getReturnValue());
+                helper.displaydata(component,event,helper,fridgereadings);
             }
         });
         $A.enqueueAction(action);
