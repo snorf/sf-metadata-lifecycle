@@ -1339,6 +1339,10 @@
         <visibility>None</visibility>
     </tabSettings>
     <tabSettings>
+        <tab>Fridge_Reading_Daily_History__c</tab>
+        <visibility>None</visibility>
+    </tabSettings>
+    <tabSettings>
         <tab>SmartFridge__c</tab>
         <visibility>None</visibility>
     </tabSettings>

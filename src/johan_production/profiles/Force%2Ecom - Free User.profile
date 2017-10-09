@@ -1559,6 +1559,10 @@
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
+        <tab>Fridge_Reading_Daily_History__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
         <tab>SmartFridge__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>

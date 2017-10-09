@@ -12,6 +12,7 @@
     <tab>standard-Feed</tab>
     <tab>standard-report</tab>
     <tab>standard-Dashboard</tab>
+    <tab>Fridge_Reading_Daily_History__c</tab>
     <uiType>Lightning</uiType>
     <utilityBar>Fridge_UtilityBar</utilityBar>
 </CustomApplication>

@@ -48,7 +48,7 @@
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
     <enableReports>true</enableReports>
-    <enableSearch>false</enableSearch>
+    <enableSearch>true</enableSearch>
     <enableSharing>false</enableSharing>
     <enableStreamingApi>false</enableStreamingApi>
     <fields>
@@ -102,6 +102,11 @@
         <type>DateTime</type>
     </fields>
     <label>Fridge Reading Daily History</label>
+    <listViews>
+        <fullName>All1</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
     <nameField>
         <displayFormat>FR-{000000}</displayFormat>
         <label>Fridge Reading Name</label>
