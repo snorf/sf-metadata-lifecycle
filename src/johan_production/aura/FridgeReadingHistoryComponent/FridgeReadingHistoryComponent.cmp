@@ -5,6 +5,8 @@
 <aura:component description="FridgeReadingHistoryComponent" implements="force:appHostable,flexipage:availableForAllPageTypes" access="global"  controller="FridgeReadingHistoryController">
     <ltng:require scripts="{!$Resource.chartjs_270}" />
     <aura:handler name="init" value="{!this}" action="{!c.doinit}"/>
+
+
     <div class="container">
         <div class="chart-demo">
             <h2 class="title">Fridge History</h2>
