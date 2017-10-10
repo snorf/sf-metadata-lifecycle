@@ -23,7 +23,8 @@ global class ArchiveTemperatureReadings implements Schedulable {
                 updates.add(frh);
             }
             Database.insertImmediate(updates);
-            delete toArchive;
         }
+        PurgeDailyFridgeReadings purgeJob = new PurgeDailyFridgeReadings(lastReading);
+        ID jobID = System.enqueueJob(purgeJob); 
     }
 }
