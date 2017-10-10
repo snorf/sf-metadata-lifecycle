@@ -3,10 +3,20 @@
  */
 
 global class ArchiveTemperatureReadings implements Schedulable {
+    public static void start(Integer perDay){
+        Integer hour = 0;
+        for(Integer i=1; i<=perDay; i++){
+            ArchiveTemperatureReadings atr = new ArchiveTemperatureReadings();
+            String schedule = '0 0 ' + hour + ' * 1-12 ? *';
+            System.schedule('ArchiveTemperatureReadings (' + hour + ') #'+i+' '+System.now(), schedule, atr);
+            hour = hour+(24/perDay);
+        }
+    }
+
     global void execute(SchedulableContext ctx) {
         doWork();
     }
-
+    
     public void doWork() {
         Datetime lastReading = [SELECT DeviceId__c, Temperature__c, ts__c FROM Fridge_Reading_History__b LIMIT 1].ts__c;
         for(List<Fridge_Reading_Daily_History__c> toArchive : [SELECT Id,ts__c,DeviceId__c,Door__c,Temperature__c,Humidity__c
