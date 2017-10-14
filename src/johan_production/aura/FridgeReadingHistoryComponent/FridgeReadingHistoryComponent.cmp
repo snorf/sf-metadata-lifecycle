@@ -7,19 +7,6 @@
     <aura:attribute name="today" type="DateTime" />
     <aura:attribute name="results" type="Integer" default="200"/>
     <aura:handler name="init" value="{!this}" action="{!c.doinit}"/>
-    <div class="slds-page-header">
-        <div class="slds-media">
-            <div class="slds-media__figure">
-                <span class="slds-icon_container slds-icon-standard-opportunity" title="Description of icon when needed">
-                    <lightning:icon iconName="custom:custom30" />
-                </span>
-            </div>
-            <div class="slds-media__body">
-                <h1 class="slds-page-header__title slds-truncate slds-align-middle" title="Fridge Reading History">Fridge Reading History</h1>
-                <p class="slds-text-body_small slds-line-height_reset">Temperature and Humidity</p>
-            </div>
-        </div>
-    </div>
     <article class="slds-card">
         <div class="slds-card__header slds-grid">
             <header class="slds-media slds-media_center slds-has-flexi-truncate">
@@ -43,7 +30,7 @@
             <ui:inputDateTime aura:id="endDate" label="End Date" class="form-control" value="{!v.today}" displayDatePicker="true" />
             <lightning:input type="number" name="results" label="Results" value="{!v.results}"/>
             <button class="slds-button slds-button_neutral" onclick="{!c.refreshData}">Refresh</button>
-            <canvas id="temperature" style="display: block; height: 480px; width: 640px;" width="640" height="480" class="chartjs-render-monitor"></canvas>
+            <canvas id="temperature" style="display: block; height: 480px; width: 640px;" width="100%" height="90%" class="chartjs-render-monitor"></canvas>
         </div>
         <footer class="slds-card__footer"></footer>
     </article>

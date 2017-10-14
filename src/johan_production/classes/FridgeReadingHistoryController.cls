@@ -19,13 +19,6 @@ public with sharing class FridgeReadingHistoryController {
             this.temperature = new List<Double>();
             this.humidity = new List<Double>();
         }
-        public void addReading(AggregateResult ar) {
-            system.debug(ar);
-//            addReading(fr.Temperature__c, fr.Humidity__c, fr.ts__c, fr.Door__c);
-        }
-        public void addReading(Fridge_Reading_Daily_History__c fr) {
-            addReading(fr.Temperature__c, fr.Humidity__c, fr.ts__c, fr.Door__c);
-        }
         public void addReading(Fridge_Reading_History__b  fr) {
             addReading(fr.Temperature__c, fr.Humidity__c, fr.ts__c, fr.Door__c);
         }
