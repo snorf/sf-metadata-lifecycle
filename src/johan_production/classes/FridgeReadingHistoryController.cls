@@ -6,15 +6,15 @@ public with sharing class FridgeReadingHistoryController {
 
     public class FridgeReading {
         public String deviceId {get;set;}
-        public List<Datetime> ts {get;set;}
-        public List<Datetime> doorTs {get;set;}
+        public List<String> ts {get;set;}
+        public List<String> doorTs {get;set;}
         public List<Integer> door {get;set;}
         public List<Double> temperature {get;set;}
         public List<Double> humidity {get;set;}
         public FridgeReading(String deviceId) {
             this.deviceId = deviceId;
-            this.ts = new List<Datetime>();
-            this.doorTs = new List<Datetime>();
+            this.ts = new List<String>();
+            this.doorTs = new List<String>();
             this.door = new List<Integer>();
             this.temperature = new List<Double>();
             this.humidity = new List<Double>();
@@ -29,14 +29,15 @@ public with sharing class FridgeReadingHistoryController {
         public void addReading(Fridge_Reading_History__b  fr) {
             addReading(fr.Temperature__c, fr.Humidity__c, fr.ts__c, fr.Door__c);
         }
-        public void addReading(Decimal t, Decimal h, DateTime ts, String d) {
-            this.ts.add(ts);
+        public void addReading(Decimal t, Decimal h, DateTime timeStamp, String d) {
+            String tsString = timeStamp.format('HH:mm dd/MM');
+            this.ts.add(tsString);
             temperature.add(t);
             humidity.add(h);
             Integer doorStatus = d == 'open' ? 1 : 0;
             if(door.size() == 0 || doorStatus != door.get(door.size()-1)) {
                 door.add(doorStatus);
-                doorTs.add(ts);
+                doorTs.add(tsString);
             }
         }
     }
@@ -57,20 +58,6 @@ public with sharing class FridgeReadingHistoryController {
         for (Integer i = frhs.size() - 1; i >= 0; i--) {
             Fridge_Reading_History__b frh = frhs[i];
             fr.addReading(frh);
-        }
-        return JSON.serialize(fr);
-    }
-
-    @AuraEnabled
-    public static String getAverageFridgeReadings(String deviceId) {
-        FridgeReading fr = new FridgeReading(deviceId);
-        List<AggregateResult> ars = [
-                SELECT DeviceId__c, AVG(Temperature__c), AVG(Humidity__c), DAY_IN_YEAR(ts__c), HOUR_IN_DAY(ts__c)
-                FROM Fridge_Reading_History__b WHERE DeviceId__c =: deviceId
-                GROUP BY DeviceId__c, DAY_IN_YEAR(ts__c), HOUR_IN_DAY(ts__c) ORDER BY DAY_IN_YEAR(ts__c), HOUR_IN_DAY(ts__c)
-        ];
-        for(AggregateResult ar : ars) {
-            fr.addReading(ar);
         }
         return JSON.serialize(fr);
     }
