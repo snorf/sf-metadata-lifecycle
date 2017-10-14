@@ -5,20 +5,42 @@
 <aura:component description="FridgeReadingHistoryComponent" implements="force:appHostable,flexipage:availableForAllPageTypes" access="global"  controller="FridgeReadingHistoryController">
     <ltng:require scripts="{!$Resource.chartjs_270}" />
     <aura:handler name="init" value="{!this}" action="{!c.doinit}"/>
-
-
-    <div class="container">
-        <div class="chart-demo">
-            <h2 class="title">Fridge History</h2>
-            <div>
-                <canvas id="temperature" style="display: block; height: 480px; width: 640px;" width="640" height="480" class="chartjs-render-monitor"></canvas>
+    <div class="slds-page-header">
+        <div class="slds-media">
+            <div class="slds-media__figure">
+                <span class="slds-icon_container slds-icon-standard-opportunity" title="Description of icon when needed">
+                    <lightning:icon iconName="custom:custom30" />
+                </span>
             </div>
-            <div>
-                <canvas id="humidity" style="display: block; height: 480px; width: 640px;" width="640" height="480" class="chartjs-render-monitor"></canvas>
-            </div>
-            <div>
-                <canvas id="door" style="display: block; height: 480px; width: 640px;" width="640" height="480" class="chartjs-render-monitor"></canvas>
+            <div class="slds-media__body">
+                <h1 class="slds-page-header__title slds-truncate slds-align-middle" title="Fridge Reading History">Fridge Reading History</h1>
+                <p class="slds-text-body_small slds-line-height_reset">Temperature and Humidity</p>
             </div>
         </div>
     </div>
+    <article class="slds-card">
+        <div class="slds-card__header slds-grid">
+            <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                <div class="slds-media__figure">
+                <span class="slds-icon_container slds-icon-standard-contact" title="description of icon when needed">
+                    <lightning:icon iconName="custom:custom97" />
+                </span>
+                </div>
+                <div class="slds-media__body">
+                    <h2>
+                        <a href="javascript:void(0);" class="slds-card__header-link slds-truncate" title="[object Object]">
+                            <span class="slds-text-heading_small">Temperature and Humidity</span>
+                        </a>
+                    </h2>
+                </div>
+            </header>
+            <div class="slds-no-flex">
+                <button class="slds-button slds-button_neutral">New</button>
+            </div>
+        </div>
+        <div class="slds-card__body slds-card__body_inner">
+            <canvas id="temperature" style="display: block; height: 480px; width: 640px;" width="640" height="480" class="chartjs-render-monitor"></canvas>
+        </div>
+        <footer class="slds-card__footer"></footer>
+    </article>
 </aura:component>

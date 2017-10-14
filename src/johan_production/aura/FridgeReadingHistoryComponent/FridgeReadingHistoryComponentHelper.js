@@ -2,7 +2,7 @@
  * Created by Johan Karlsteen on 2017-10-08.
  */
 ({
-        displayTempData : function(component, event, helper, readings) {
+        displayData : function(component, event, helper, readings) {
             var config = {
                 type: 'line',
                 data: {
@@ -12,6 +12,15 @@
                         backgroundColor: 'red',
                         borderColor: 'red',
                         data: readings.temperature,
+                        yAxisID: "y-axis-1",
+                        fill: false,
+                    },
+                    {
+                        label: 'Humidity',
+                        backgroundColor: 'blue',
+                        borderColor: 'blue',
+                        data: readings.humidity,
+                        yAxisID: "y-axis-2",
                         fill: false,
                     }]
                 },
@@ -30,121 +39,26 @@
                         intersect: true
                     },
                     scales: {
-                        xAxes: [{
-                            display: true,
-                            scaleLabel: {
-                                display: true,
-                                labelString: 'Timestamp'
-                            }
-                        }],
                         yAxes: [{
+                            type: "linear", // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
                             display: true,
-                            scaleLabel: {
-                                display: true,
-                                labelString: 'Value'
-                            }
-                        }]
+                            position: "left",
+                            id: "y-axis-1",
+                        }, {
+                            type: "linear", // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
+                            display: true,
+                            position: "right",
+                            id: "y-axis-2",
+
+                            // grid line settings
+                            gridLines: {
+                                drawOnChartArea: false, // only want the grid lines for one axis to show up
+                            },
+                        }],
                     }
                 }
             };
             var ctx = document.getElementById("temperature").getContext("2d");
-            window.myLine = new Chart(ctx, config);
-        },
-        displayHumidityData : function(component, event, helper, readings) {
-            var config = {
-                type: 'line',
-                data: {
-                    labels: readings.ts,
-                    datasets: [{
-                        label: 'Humidity',
-                        fill: false,
-                        backgroundColor: 'blue',
-                        borderColor: 'blue',
-                        data: readings.humidity,
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    title:{
-                        display:true,
-                        text:'Humidity'
-                    },
-                    tooltips: {
-                        mode: 'index',
-                        intersect: false,
-                    },
-                    hover: {
-                        mode: 'nearest',
-                        intersect: true
-                    },
-                    scales: {
-                        xAxes: [{
-                            display: true,
-                            scaleLabel: {
-                                display: true,
-                                labelString: 'Timestamp'
-                            }
-                        }],
-                        yAxes: [{
-                            display: true,
-                            scaleLabel: {
-                                display: true,
-                                labelString: 'Value'
-                            }
-                        }]
-                    }
-                }
-            };
-            var ctx = document.getElementById("humidity").getContext("2d");
-            window.myLine = new Chart(ctx, config);
-        },
-        displayDoorData : function(component, event, helper, readings) {
-            var config = {
-                type: 'line',
-                data: {
-                    labels: readings.doorTs,
-                    datasets: [{
-                        label: 'Door',
-                        steppedLine: true,
-                        fill: false,
-                        backgroundColor: 'black',
-                        borderColor: 'black',
-                        data: readings.door,
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    title:{
-                        display:true,
-                        text:'Door Status'
-                    },
-                    tooltips: {
-                        mode: 'index',
-                        intersect: false,
-                    },
-                    hover: {
-                        mode: 'nearest',
-                        intersect: true
-                    },
-                    scales: {
-                        xAxes: [{
-                            display: true,
-                            scaleLabel: {
-                                display: true,
-                                labelString: 'Timestamp'
-                            }
-                        }],
-                        yAxes: [{
-                            display: false,
-                            scaleLabel: {
-                                display: true,
-                                labelString: 'Value'
-                            }
-                        }]
-                    }
-                }
-            };
-            var ctx = document.getElementById("door").getContext("2d");
             window.myLine = new Chart(ctx, config);
         }
 })

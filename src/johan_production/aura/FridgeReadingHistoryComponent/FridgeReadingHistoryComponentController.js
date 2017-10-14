@@ -11,9 +11,7 @@
             var state = response.getState();
             if (state === "SUCCESS") {
                 var fridgereadings = JSON.parse(response.getReturnValue());
-                helper.displayTempData(component,event,helper,fridgereadings);
-                helper.displayHumidityData(component,event,helper,fridgereadings);
-                helper.displayDoorData(component,event,helper,fridgereadings);
+                helper.displayData(component,event,helper,fridgereadings);
             }
         });
         $A.enqueueAction(action);
