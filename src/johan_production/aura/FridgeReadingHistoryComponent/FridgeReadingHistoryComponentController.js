@@ -3,17 +3,11 @@
  */
 ({
     doinit : function(component,event,helper){
-        var action = component.get("c.getFridgeReadings");
-        action.setParams({
-        	deviceId : "2352fc042b6dc0ee"
-    	});
-        action.setCallback(this, function(response){
-            var state = response.getState();
-            if (state === "SUCCESS") {
-                var fridgereadings = JSON.parse(response.getReturnValue());
-                helper.displayData(component,event,helper,fridgereadings);
-            }
-        });
-        $A.enqueueAction(action);
+        var today = new Date();
+        component.set("v.today", today.toISOString());
+        helper.refreshData(component,event,helper);
+    },
+    refreshData : function(component,event,helper) {
+        helper.refreshData(component,event,helper);
     }
 })

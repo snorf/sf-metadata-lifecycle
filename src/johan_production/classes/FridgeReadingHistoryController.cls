@@ -42,27 +42,21 @@ public with sharing class FridgeReadingHistoryController {
     }
 
     @AuraEnabled
-    public static String getFridgeReadings(String deviceId) {
-        FridgeReading fr = new FridgeReading(deviceId);
-        List<Fridge_Reading_Daily_History__c> frdhs = [SELECT DeviceId__c, Temperature__c, Humidity__c, Door__c, ts__c
-                                            FROM Fridge_Reading_Daily_History__c WHERE DeviceId__c =: deviceId
-                                            ORDER BY ts__c ASC LIMIT 300];
-        for(Fridge_Reading_Daily_History__c frdh : frdhs) {
-            fr.addReading(frdh);
+    public static String getFridgeReadings(String deviceId, Integer results, DateTime endDate) {
+        if(results == null) {
+            results = 200;
         }
-
-        Integer fromArchive = 300-frdhs.size();
-        DateTime lastReading = fr.ts.get(fr.ts.size()-1);
-        if(fromArchive > 0) {
-            List<Fridge_Reading_History__b> frhs = [
-                    SELECT DeviceId__c, Temperature__c, Humidity__c, Door__c, ts__c
-                    FROM Fridge_Reading_History__b
-                    WHERE DeviceId__c = :deviceId AND ts__c <: lastReading
-            ];
-            for (Integer i = frhs.size() - 1; i >= frhs.size()-fromArchive; i--) {
-                Fridge_Reading_History__b frh = frhs[i];
-                fr.addReading(frh);
-            }
+        FridgeReading fr = new FridgeReading(deviceId);
+        system.debug('RESULTS: ' +results);
+        List<Fridge_Reading_History__b> frhs = [
+                SELECT DeviceId__c, Temperature__c, Humidity__c, Door__c, ts__c
+                FROM Fridge_Reading_History__b
+                WHERE DeviceId__c = :deviceId AND ts__c <: endDate
+                LIMIT :Integer.valueof(results)
+        ];
+        for (Integer i = frhs.size() - 1; i >= 0; i--) {
+            Fridge_Reading_History__b frh = frhs[i];
+            fr.addReading(frh);
         }
         return JSON.serialize(fr);
     }
