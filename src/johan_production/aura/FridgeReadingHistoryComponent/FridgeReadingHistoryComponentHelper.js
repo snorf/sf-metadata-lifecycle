@@ -39,7 +39,7 @@
                              }]
                 },
                 options: {
-                    maintainAspectRatio: false,
+                    maintainAspectRatio: true,
                     responsive: true,
                     title:{
                         display:false,

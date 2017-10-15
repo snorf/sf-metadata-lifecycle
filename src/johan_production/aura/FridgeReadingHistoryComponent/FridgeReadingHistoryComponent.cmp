@@ -6,6 +6,8 @@
     <ltng:require scripts="{!$Resource.chartjs_270}" />
     <aura:attribute name="today" type="DateTime" />
     <aura:attribute name="results" type="Integer" default="200"/>
+    <aura:attribute name="width" type="Integer" />
+    <aura:attribute name="height" type="Integer" />
     <aura:handler name="init" value="{!this}" action="{!c.doinit}"/>
     <article class="slds-card">
         <div class="slds-card__header slds-grid">
@@ -26,11 +28,11 @@
             <div class="slds-no-flex">
             </div>
         </div>
-        <div class="slds-card__body slds-card__body_inner" style="height: 600px;">
+        <div class="slds-card__body slds-card__body_inner" style="height: 100%">
             <ui:inputDateTime aura:id="endDate" label="End Date" class="form-control" value="{!v.today}" displayDatePicker="true" />
             <lightning:input type="number" name="results" label="Results" value="{!v.results}"/>
             <button class="slds-button slds-button_neutral" onclick="{!c.refreshData}">Refresh</button>
-            <canvas id="temperature" height="400"  class="chartjs-render-monitor"></canvas>
+            <canvas id="temperature" width="{!v.width}" height="{!v.height-200}" class="chartjs-render-monitor"></canvas>
         </div>
         <footer class="slds-card__footer"></footer>
     </article>
