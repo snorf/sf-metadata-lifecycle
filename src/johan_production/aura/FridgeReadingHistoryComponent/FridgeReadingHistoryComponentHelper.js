@@ -9,7 +9,7 @@
         },
         redrawData : function(component, event, helper, readings, chart, datasets) {
             helper.addData(chart, readings.ts, datasets);
-            chart.update(0);
+            chart.update();
         },
         displayData : function(component, event, helper, readings) {
             var datasets = [readings.temperature, readings.humidity];
@@ -42,7 +42,7 @@
                     maintainAspectRatio: false,
                     responsive: true,
                     title:{
-                        display:true,
+                        display:false,
                         text:'Temperature'
                     },
                     tooltips: {
