@@ -389,18 +389,17 @@
             <processMetadataValues>
                 <name>rightHandSideType</name>
                 <value>
-                    <stringValue>Reference</stringValue>
+                    <stringValue>Event</stringValue>
                 </value>
             </processMetadataValues>
             <field>DeviceId__c</field>
             <operator>EqualTo</operator>
             <value>
-                <elementReference>myVariable_event_context.DeviceId__c</elementReference>
+                <elementReference>myVariable_myEvent.deviceId__c</elementReference>
             </value>
         </filters>
         <object>SmartFridge__c</object>
         <outputReference>myVariable_event_context_collection</outputReference>
-        <queriedFields>DeviceId__c</queriedFields>
     </recordLookups>
     <recordUpdates>
         <processMetadataValues>
@@ -595,7 +594,8 @@
 
 The SmartFridgeReading Platform Event process is configured to start when a Smart Fridge Reading platform event message occurs. A Smart Fridge Reading message occurred, but the process didn&apos;t start because multiple records in your org match the values specified in the process&apos;s Object node.
 
-
+Here are the values from the Smart Fridge Reading message.
+deviceId: {!myVariable_myEvent.deviceId__c}
 
 To fix this issue, adjust the matching filters in the process&apos;s Object node.
 
@@ -609,7 +609,8 @@ Salesforce Process Automation</text>
 
 The SmartFridgeReading Platform Event process is configured to start when a Smart Fridge Reading platform event message occurs. A Smart Fridge Reading message occurred, but the process didn&apos;t start because no records in your org match the values specified in the process&apos;s Object node.
 
-
+Here are the values from the Smart Fridge Reading message.
+deviceId: {!myVariable_myEvent.deviceId__c}
 
 To fix this issue, adjust the matching filters in the process&apos;s Object node.
 
