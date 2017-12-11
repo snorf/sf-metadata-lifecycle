@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <article>None</article>
+        <plural>false</plural>
+        <value>Project</value>
+    </caseValues>
+    <caseValues>
+        <article>None</article>
+        <plural>true</plural>
+        <value>Projects</value>
+    </caseValues>
+    <fields>
+        <label><!-- Case --></label>
+        <name>Case__c</name>
+        <relationshipLabel><!-- Projects --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Completion Date --></label>
+        <name>Completion_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Consultant --></label>
+        <name>Consultant__c</name>
+        <picklistValues>
+            <masterLabel>Abbi Lopez</masterLabel>
+            <translation><!-- Abbi Lopez --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ed Collins</masterLabel>
+            <translation><!-- Ed Collins --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Kirk Cameron</masterLabel>
+            <translation><!-- Kirk Cameron --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lee Gray</masterLabel>
+            <translation><!-- Lee Gray --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sherri Pinkham</masterLabel>
+            <translation><!-- Sherri Pinkham --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Steve Bradski</masterLabel>
+            <translation><!-- Steve Bradski --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Customer Account --></label>
+        <name>Customer_Account__c</name>
+        <relationshipLabel><!-- Projects --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Customer Reference --></label>
+        <name>Customer_Reference__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date --></label>
+        <name>Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Due Date --></label>
+        <name>Due_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Gross Value --></label>
+        <name>Gross_Value__c</name>
+    </fields>
+    <fields>
+        <label><!-- Invoice Date --></label>
+        <name>Invoice_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Invoiced --></label>
+        <name>Invoiced__c</name>
+    </fields>
+    <fields>
+        <label><!-- Net Value --></label>
+        <name>Net_Value__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payment Method --></label>
+        <name>Payment_Method__c</name>
+        <picklistValues>
+            <masterLabel>Cash</masterLabel>
+            <translation><!-- Cash --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Check</masterLabel>
+            <translation><!-- Check --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Electronic</masterLabel>
+            <translation><!-- Electronic --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Processed --></label>
+        <name>Processed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Project Name --></label>
+        <name>Project_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Project Status --></label>
+        <name>Project_Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Complete</masterLabel>
+            <translation><!-- Complete --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In Progress</masterLabel>
+            <translation><!-- In Progress --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Open</masterLabel>
+            <translation><!-- Open --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Tax Rate 1 --></label>
+        <name>Tax_Rate_1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tax Rate 2 --></label>
+        <name>Tax_Rate_2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tax Rate 3 --></label>
+        <name>Tax_Rate_3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tax Value 1 --></label>
+        <name>Tax_Value_1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tax Value 2 --></label>
+        <name>Tax_Value_2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tax Value 3 --></label>
+        <name>Tax_Value_3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Tax --></label>
+        <name>Total_Tax__c</name>
+    </fields>
+    <gender>Neuter</gender>
+    <layouts>
+        <layout>Work Order Layout</layout>
+        <sections>
+            <label><!-- Invoice Details --></label>
+            <section>Invoice Details</section>
+        </sections>
+    </layouts>
+</CustomObjectTranslation>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <article>None</article>
+        <plural>false</plural>
+        <value>Alexa News</value>
+    </caseValues>
+    <caseValues>
+        <article>None</article>
+        <plural>true</plural>
+        <value>Alexa News</value>
+    </caseValues>
+    <fields>
+        <label><!-- Closed Opps --></label>
+        <name>Closed_Opps__c</name>
+    </fields>
+    <fields>
+        <label><!-- Escalated Cases --></label>
+        <name>Escalated_Cases__c</name>
+    </fields>
+    <fields>
+        <label><!-- News Headline --></label>
+        <name>News_Headline__c</name>
+    </fields>
+    <fields>
+        <label><!-- News Type --></label>
+        <name>News_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Red Projects --></label>
+        <name>Red_Projects__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Billed --></label>
+        <name>Total_Billed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Cases --></label>
+        <name>Total_Cases__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Opps --></label>
+        <name>Total_Opps__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Projects --></label>
+        <name>Total_Projects__c</name>
+    </fields>
+    <gender>Neuter</gender>
+</CustomObjectTranslation>
