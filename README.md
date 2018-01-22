@@ -34,7 +34,7 @@ Add these 3 global variables to Jenkins (Under http://jenkinsinstance/jenkins/co
     ```sh generate_build_properties.sh```
     2. Invoce Ant
     Targets
-    ```retrieveUnpackaged -lib lib\ant-salesforce.jar;lib\ant-contrib-1.0b3.jar```
+    ```backupMetadata -lib lib\ant-salesforce-41.0.jar```
     3. Execute shell
     ```sh commit_to_git.sh```
 10. Under Post-build Actions, add Git Publisher
