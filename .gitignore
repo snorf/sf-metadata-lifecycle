@@ -1,3 +1,4 @@
 tmp
 build.properties
 /build/*
+/src/*/cleanDataServices/DataCloudGeoLocation.cleanDataService
