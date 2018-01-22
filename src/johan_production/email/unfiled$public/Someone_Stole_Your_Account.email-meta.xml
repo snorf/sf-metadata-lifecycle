@@ -6,4 +6,5 @@
     <style>none</style>
     <subject>Someone Stole Your Account</subject>
     <type>text</type>
+    <uiType>Aloha</uiType>
 </EmailTemplate>

@@ -46,6 +46,7 @@
     <description>Consulting Work Order Custom Object (Not a standard FinancialForce object)</description>
     <enableActivities>true</enableActivities>
     <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>true</enableFeeds>
     <enableHistory>true</enableHistory>
@@ -91,26 +92,32 @@
                 <value>
                     <fullName>Abbi Lopez</fullName>
                     <default>false</default>
+                    <label>Abbi Lopez</label>
                 </value>
                 <value>
                     <fullName>Ed Collins</fullName>
                     <default>false</default>
+                    <label>Ed Collins</label>
                 </value>
                 <value>
                     <fullName>Lee Gray</fullName>
                     <default>false</default>
+                    <label>Lee Gray</label>
                 </value>
                 <value>
                     <fullName>Sherri Pinkham</fullName>
                     <default>false</default>
+                    <label>Sherri Pinkham</label>
                 </value>
                 <value>
                     <fullName>Steve Bradski</fullName>
                     <default>false</default>
+                    <label>Steve Bradski</label>
                 </value>
                 <value>
                     <fullName>Kirk Cameron</fullName>
                     <default>false</default>
+                    <label>Kirk Cameron</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -219,14 +226,17 @@
                 <value>
                     <fullName>Check</fullName>
                     <default>true</default>
+                    <label>Check</label>
                 </value>
                 <value>
                     <fullName>Cash</fullName>
                     <default>false</default>
+                    <label>Cash</label>
                 </value>
                 <value>
                     <fullName>Electronic</fullName>
                     <default>false</default>
+                    <label>Electronic</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -281,14 +291,17 @@
                 <value>
                     <fullName>Open</fullName>
                     <default>true</default>
+                    <label>Open</label>
                 </value>
                 <value>
                     <fullName>In Progress</fullName>
                     <default>false</default>
+                    <label>In Progress</label>
                 </value>
                 <value>
                     <fullName>Complete</fullName>
                     <default>false</default>
+                    <label>Complete</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -495,4 +508,5 @@
         <searchResultsAdditionalFields>CREATEDBY_USER</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
 </CustomObject>

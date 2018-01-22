@@ -1,0 +1,42 @@
+<!--
+ - Created by Johan Karlsteen on 2017-10-13.
+ -->
+
+<aura:component description="DocumentationChapter">
+    <lightning:overlayLibrary aura:id="overlayLib"/>
+    <aura:attribute name="isNew" type="Boolean" />
+    <aura:attribute name="chapterId" type="Id" />
+    <aura:attribute name="documentationId" type="Id" />
+    <aura:attribute name="editable" type="Boolean" />
+    <aura:attribute name="record" type="Object" />
+    <aura:attribute name="simpleRecord" type="Object" />
+    <aura:attribute name="recordError" type="String" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler name="change" value="{!v.chapterId}" action="{!c.chapterIdChange}"/>
+    <aura:registerEvent name="ChapterUpdatedEvent" type="eins_help:ChapterUpdatedEvent"/>
+
+    <force:recordData aura:id="recordLoader"
+                      recordId="{!v.chapterId}"
+                      targetError="{!v.recordError}"
+                      targetRecord="{!v.record}"
+                      targetFields="{!v.simpleRecord}"
+                      fields="eins_help__Title__c, eins_help__Body__c, eins_help__Order__c"
+                      mode="{!if(v.editable,'EDIT','VIEW')}" />
+
+    <aura:if isTrue="{!not(empty(v.recordError))}">
+        <div class="recordError">
+            <ui:message title="Error" severity="error" closable="true">
+                    {!v.recordError}
+            </ui:message>
+        </div>
+    </aura:if>
+
+    <aura:if isTrue="{!v.editable}">
+        <lightning:input aura:id="title" name="recordName" label="Title" value="{!v.simpleRecord.eins_help__Title__c}" required="true"/>
+        <lightning:input aura:id="order" name="recordName" label="Order" type="number" value="{!v.simpleRecord.eins_help__Order__c}" required="true"/>
+        <lightning:inputRichText value="{!v.simpleRecord.eins_help__Body__c}"/>
+    </aura:if>
+    <aura:if isTrue="{!!v.editable}">
+            <ui:outputRichText value="{!v.simpleRecord.eins_help__Body__c}"/>
+    </aura:if>
+</aura:component>

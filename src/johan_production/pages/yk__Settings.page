@@ -1,0 +1,135 @@
+<apex:page controller="yk.SettingsController" title="YubiKey Management"
+           showHeader="true" action="{!assertIsConfigured}">
+<apex:includeScript value="https://code.jquery.com/jquery-1.7.0.min.js"/>
+<script type="text/javascript">
+function togglePopup(popupId){
+$(popupId)
+    .fadeIn(function(){h = true;})
+    .delay(8000)
+    .fadeOut();
+};
+</script>
+<style>
+.popup
+{
+    display: none;
+    position: absolute;
+    background-color: #ffffd7;
+    border-color: grey;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 3px;
+    margin: 10px;
+    padding: 5px;
+    font-weight: normal;
+    max-width: 360px;
+}
+</style>
+<apex:pageMessages />
+<br/>
+<apex:image value="{!$Resource.yk__YubicoLogo}" style="margin-bottom: -8px; margin-right: 3px;"/>
+<h1 style="font-size: 2em; font-weight: normal;">YubiKey Management</h1>
+<div style="position: absolute; right: 15px; top: 3.5em;">
+    <apex:outputLink style="text-decoration: none; color: #015ba7;" value="{! $Page.About}">About</apex:outputLink>
+    |&nbsp;
+    <apex:outputLink style="text-decoration: none; color: #015ba7;" target="_blank" value="https://www.yubico.com/applications/salesforce">Help</apex:outputLink>
+    |&nbsp;
+    <apex:outputLink style="text-decoration: none; color: #015ba7;" value="{! $Page.Log}">Log</apex:outputLink>
+</div>
+<br/>
+<br/>
+<div id="gettingStarted">
+<apex:pageBlock title="Getting Started" rendered="{!NOT(gettingStartedDismissed)}">
+<p>
+    Welcome to the YubiKey Management tab! From here, System Administrators can manage everything related to YubiKeys. Regular users can control their own settings in the <b>My YubiKeys</b> tab.
+</p>
+<p>
+    We recommend watching our 2 minute introduction video. You might also be interested in the <a target="_blank" href="http://yubi.co/YKSFadmin">PDF manual</a>. You can access these resources at any time via the <b>Help</b> link in the upper right corner of this page.
+</p>
+<br/>
+<a target="_blank" href="http://vimeo.com/108142695"><apex:image value="{!$Resource.yk__VideoPreview}"/></a>
+<br/><br/>
+<apex:form >
+<apex:commandLink style="text-decoration: none; color: #015ba7;" action="{!dismissGettingStarted}" onclick="$('#gettingStarted').fadeOut()">Do not show this again</apex:commandLink>
+</apex:form>
+</apex:pageBlock>
+</div>
+    <apex:form >
+    <apex:pageBlock title="Global Settings" helpTitle="Global Settings Help" helpUrl="{! $Page.GlobalSettingsHelp}">
+
+       <apex:pageBlockSection >
+       
+            <apex:outputLabel value="Enable YubiKey authentication"/>
+            <apex:image value="https://eu3.salesforce.com/img/checkbox_checked.gif" rendered="{!packageEnabled}"/>
+            <apex:image value="https://eu3.salesforce.com/img/checkbox_unchecked.gif" rendered="{!IF(packageEnabled,false,true)}"/>
+
+            <apex:outputLabel >
+                &nbsp;&nbsp;&nbsp;Allow&nbsp;<apex:outputLink value="#" onclick="togglePopup('#selfProvPopup')">self-provisioning</apex:outputLink>
+                <span id="selfProvPopup" class="popup">
+                    Allow users to optionally assign a YubiKey to their account when logging in. Once assigned,
+                    YubiKey authentication will be required to login for that user.
+                </span>
+            </apex:outputLabel>           
+            <apex:image value="https://eu3.salesforce.com/img/checkbox_checked.gif" rendered="{!allowUsersWithoutYubikeys}"/>
+            <apex:image value="https://eu3.salesforce.com/img/checkbox_unchecked.gif" rendered="{!IF(allowUsersWithoutYubikeys,false,true)}"/>
+
+            <apex:outputLabel >
+                &nbsp;&nbsp;&nbsp;Bypass YubiKey authentication from a&nbsp;<apex:outputLink value="/05G?setupid=NetworkAccess">trusted IP</apex:outputLink>
+            </apex:outputLabel>
+            <apex:image value="https://eu3.salesforce.com/img/checkbox_checked.gif" rendered="{!skipForTrustedNetwork}"/>
+            <apex:image value="https://eu3.salesforce.com/img/checkbox_unchecked.gif" rendered="{!IF(skipForTrustedNetwork,false,true)}"/>
+            
+            </apex:pageBlockSection>
+         <apex:pageBlockButtons >
+             <c:LinkButton link="{! $Page.EditYkSettings}" caption="Edit"/>
+         </apex:pageBlockButtons>
+    </apex:pageBlock>
+    </apex:form>
+
+  <apex:pageBlock title="User Management" helpTitle="User Management Help" helpUrl="{! $Page.UserManagementHelp}">
+
+       <apex:form >
+       <apex:outputLabel for="chooseProfilr" style="text-align:left;font-weight:bold;" value="Profile: "/>
+       <apex:selectList id="chooseProfile" value="{!profileFilter}" size="1">
+            <apex:selectOptions value="{!availableProfiles}"/>
+            <apex:actionSupport event="onchange" reRender="userList"/>
+        </apex:selectList> 
+       
+       <apex:outputLabel for="chooseFilter" style="text-align:left;font-weight:bold;padding-left:2em;" value="Number of YubiKeys: "/>
+       <apex:selectList id="chooseFilter" value="{!filter}" size="1">
+            <apex:selectOption itemValue="any" itemLabel="Any"/>
+            <apex:selectOption itemValue="0" itemLabel="0"/>
+            <apex:selectOption itemValue="1 or more" itemLabel="1 or more"/>
+            <apex:actionSupport event="onchange" reRender="userList"/>
+        </apex:selectList> 
+        
+
+        </apex:form>
+    <br/>
+    <apex:outputPanel id="userList">
+    <apex:pageBlockTable value="{!UserList}" var="usr">
+    
+      <apex:column headerValue="Action" styleClass="actionColumn">
+          <apex:form >
+          
+              <apex:outputLink value="{! $Page.PersonalKeyManagement}" styleClass="actionLink">Manage YubiKeys
+                  <apex:param name="userId" value="{!usr['id']}"/>
+              </apex:outputLink>
+              &nbsp;|&nbsp;
+              <apex:outputLink value="{! $Page.AllowTemporaryLogin}" styleClass="actionLink">Generate emergency login code
+                  <apex:param name="userId" value="{!usr['id']}"/>
+              </apex:outputLink>
+
+          </apex:form>
+      </apex:column>
+      
+      <apex:column headerValue="Name">{!usr['Name']}</apex:column>
+      <apex:column headerValue="Username">{!usr['Username']}</apex:column>
+      <apex:column headerValue="Profile">{!usr['Profile']}</apex:column>
+      <apex:column headerValue="Number of YubiKeys">{!usr['keys']}</apex:column>
+      
+    </apex:pageBlockTable>
+    </apex:outputPanel>
+  </apex:pageBlock>
+
+</apex:page>

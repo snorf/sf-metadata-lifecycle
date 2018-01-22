@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EventDelivery xmlns="http://soap.sforce.com/2006/04/metadata">
+    <eventParameters>
+        <parameterName>FlowVersionName</parameterName>
+        <parameterValue>SmartFridgeReading_Platform_Event-2</parameterValue>
+    </eventParameters>
+    <eventSubscription>SmartFridgeReading_Platform_Event_2</eventSubscription>
+    <referenceData>SmartFridgeReading_Platform_Event_2</referenceData>
+    <type>StartFlow</type>
+</EventDelivery>

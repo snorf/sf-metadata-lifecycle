@@ -1,0 +1,16 @@
+<apex:page title="Generate emergency login code" controller="yk.AllowTemporaryLoginController" action="{!setTempCode}">
+  <apex:form >
+  <apex:pageblock title="Emergency login code">
+      <p>The code below can be used by {!userName} in place of a YubiKey one-time password once during the <em>next {!expirationTimeInMinutes} minutes</em>.</p>
+      <apex:pageBlockSection >
+      
+          <apex:outputText style="font-size: 250%" value="{!LEFT(tempCode,3)} {!RIGHT(tempCode,3)}"/>
+      
+      </apex:pageBlockSection>
+      <p>Any previously generated temporary codes for this user are now invalid.</p>
+      <apex:pageBlockButtons >
+         <c:LinkButton link="{! $Page.Settings}" caption="Back"/>
+      </apex:pageBlockButtons>
+  </apex:pageblock>
+  </apex:form>
+</apex:page>

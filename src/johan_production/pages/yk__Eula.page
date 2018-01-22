@@ -1,0 +1,12 @@
+<apex:page controller="yk.EulaController">
+<apex:pageBlock title="Terms and Conditions">
+<apex:pageBlockSection >
+By clicking <em>I agree</em> you are agreeing to the <a target="_blank" href="http://yubico.com/terms-condition">Yubico Terms and Conditions</a>.
+</apex:pageBlockSection>
+    <apex:pageblockButtons >
+        <apex:form >
+            <apex:commandButton action="{!agree}" value="I agree"/>
+        </apex:form>
+    </apex:pageblockButtons>
+</apex:pageBlock>
+</apex:page>

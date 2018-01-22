@@ -89,10 +89,12 @@
                 <value>
                     <fullName>No</fullName>
                     <default>false</default>
+                    <label>No</label>
                 </value>
                 <value>
                     <fullName>Yes</fullName>
                     <default>false</default>
+                    <label>Yes</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -122,14 +124,17 @@
                 <value>
                     <fullName>High</fullName>
                     <default>false</default>
+                    <label>High</label>
                 </value>
                 <value>
                     <fullName>Low</fullName>
                     <default>false</default>
+                    <label>Low</label>
                 </value>
                 <value>
                     <fullName>Medium</fullName>
                     <default>false</default>
+                    <label>Medium</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -343,18 +348,22 @@
                 <value>
                     <fullName>Gold</fullName>
                     <default>false</default>
+                    <label>Gold</label>
                 </value>
                 <value>
                     <fullName>Silver</fullName>
                     <default>false</default>
+                    <label>Silver</label>
                 </value>
                 <value>
                     <fullName>Platinum</fullName>
                     <default>false</default>
+                    <label>Platinum</label>
                 </value>
                 <value>
                     <fullName>Bronze</fullName>
                     <default>false</default>
+                    <label>Bronze</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -412,14 +421,17 @@
                 <value>
                     <fullName>Maybe</fullName>
                     <default>false</default>
+                    <label>Maybe</label>
                 </value>
                 <value>
                     <fullName>No</fullName>
                     <default>false</default>
+                    <label>No</label>
                 </value>
                 <value>
                     <fullName>Yes</fullName>
                     <default>false</default>
+                    <label>Yes</label>
                 </value>
             </valueSetDefinition>
         </valueSet>

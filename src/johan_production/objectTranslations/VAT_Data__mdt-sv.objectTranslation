@@ -10,13 +10,5 @@
         <plural>true</plural>
         <value>VAT Data</value>
     </caseValues>
-    <fields>
-        <label><!-- Country Name --></label>
-        <name>Country_Name__c</name>
-    </fields>
-    <fields>
-        <label><!-- VAT Rate --></label>
-        <name>VAT_Rate__c</name>
-    </fields>
     <gender>Neuter</gender>
 </CustomObjectTranslation>

@@ -1,0 +1,53 @@
+<apex:page controller="yk.EditSettingsController" title="Change Settings" showHeader="true">
+<script type="text/javascript">
+function updateOptions() {
+    var mainOption = document.getElementsByClassName("mainOption")[0];
+    var options = document.getElementsByClassName("subOption");
+    for(i=0; i<options.length; i++) {
+        options[i].disabled = !mainOption.checked;
+    }
+}
+window.onload=function(){ updateOptions(); };
+</script>
+<apex:pageMessages />
+    <apex:form >
+    <apex:pageBlock title="Global Settings" helpTitle="Global Settings Help" helpUrl="http://www.lmgtfy.com">
+
+       <apex:pageBlockSection >
+       
+            <apex:outputPanel >
+                <apex:outputLabel for="packageEnabled" style="font-weight: bold;" value="Enable YubiKey authentication"/>
+                <br/>
+                <apex:outputLabel style="font-size: 80%;" value="Enables the YubiKey authentication (for all profiles associated with a YubiKey Login Flow)."/>
+            </apex:outputPanel>
+            <apex:inputCheckbox id="packageEnabled" styleClass="mainOption" value="{!packageEnabled}" onchange="updateOptions()"/>
+         
+           
+            <apex:outputPanel >
+                <apex:outputLabel for="allowUsersWithoutYks" style="font-weight: bold;" value="Allow self-provisioning"/>
+                <br/>
+                <apex:outputLabel style="font-size: 80%;">Allow users to optionally assign a YubiKey to their account when logging in. Once assigned,
+                    YubiKey authentication will be required to login for that user.<br/><br/>
+                    This reduces administrational burden; for example, a bowl of YubiKeys can be placed on the reception desk.
+                </apex:outputLabel>
+            </apex:outputPanel>
+            <apex:inputCheckbox id="allowUsersWithoutYks" styleClass="subOption" value="{!allowUsersWithoutYubikeys}"/>
+           
+         
+            <apex:outputPanel >
+                <apex:outputLabel for="skipForTrustedNw" style="font-weight: bold;" value="Bypass YubiKey authentication when logging in from a trusted IP address"/>
+                <br/>
+                <apex:outputLabel style="font-size: 80%;">
+                    Users do not have to provide a one-time password when logging in from a trusted IP address (directly or via VPN).
+                </apex:outputLabel>
+            </apex:outputPanel>
+            <apex:inputCheckbox id="skipForTrustedNw" styleClass="subOption" value="{!skipForTrustedNetwork}"/>
+            
+         </apex:pageBlockSection>
+         <apex:pageBlockButtons >
+             <apex:commandButton value="Save" action="{!saveSettings}"/>
+             <c:LinkButton link="{! $Page.Settings}" caption="Cancel"/>
+         </apex:pageBlockButtons>
+    </apex:pageBlock>
+    </apex:form>
+</apex:page>

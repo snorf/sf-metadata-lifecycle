@@ -46,6 +46,7 @@
     <description>Stores snapshot summaries of Opps, Cases, Projects and Invoices used by Alexa new service</description>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
     <enableReports>false</enableReports>
@@ -172,4 +173,5 @@
     <pluralLabel>Alexa News</pluralLabel>
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
 </CustomObject>

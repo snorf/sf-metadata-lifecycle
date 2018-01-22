@@ -1,0 +1,34 @@
+<apex:page controller="yk.PersonalKeyManagementController" action="{!onLoad}">
+    <apex:pageMessages />
+    <apex:pageBlock title="YubiKeys assigned to {!username}">
+    <apex:pageBlockTable value="{!KeyList}" var="key">
+      
+      <apex:column headerValue="Action" styleClass="actionColumn">
+          <apex:form >
+              <apex:commandLink onclick="if(!confirm('Are you sure?')){return};" action="{!removeKey}" styleClass="actionLink">Remove
+                  <apex:param name="id" value="{!key['id']}" assignTo="{!idToRemove}"/>
+              </apex:commandLink>
+          </apex:form>
+      </apex:column>
+      
+      <apex:column headerValue="Serial number" >
+          {!LEFT(key['serial'],4)} {!RIGHT(key['serial'],4)}
+      </apex:column>
+    </apex:pageBlockTable>
+    <apex:pageBlockButtons >
+      <apex:outputLink styleClass="btn" style="text-decoration: none;" value="{! $Page.RegisterNewYubikey}">Assign new YubiKey
+          <apex:param name="userId" value="{!userId}"/>
+      </apex:outputLink>
+    </apex:pageBlockButtons>
+  </apex:pageBlock>
+    
+    <apex:pageBlock title="Salesforce Authenticator">
+      <p>The Salesforce Authenticator app can be used in place of YubiKey One-Time Passwords when logging in from a smart phone or tablet.</p>
+      <p>
+            <apex:outputLink styleClass="btn" style="text-decoration: none;" value="{! $Page.ConfigureTotp}">{! IF(isConfigured, "Move to a different phone", "Setup")}
+              <apex:param name="userId" value="{!userId}"/>
+            </apex:outputLink>
+      </p>
+      <p><em>Note that YubiKeys <a target="_blank" href="https://play.google.com/store/apps/details?id=com.yubico.yubiclip&hl=en">do work with most Android phones and tablets</a>.</em></p>
+    </apex:pageBlock>
+</apex:page>

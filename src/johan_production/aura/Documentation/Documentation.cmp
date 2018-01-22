@@ -1,0 +1,68 @@
+<!--
+ - Created by Johan Karlsteen on 2017-10-12.
+ -->
+
+<aura:component implements="force:appHostable,flexipage:availableForRecordHome,force:hasRecordId" description="Documentation" controller="eins_help.DocumentationController" access="global">
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="documentation" type="Object" />
+    <aura:attribute name="chapter" type="Object" />
+    <aura:attribute name="selectedChapterId" type="Id" />
+    <aura:attribute name="options" type="List" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+    <div class="slds-p-bottom_xx-small">
+    <lightning:select aura:id="chapters" label="Chapter" onchange="{!c.onSelectChange}">
+        <aura:iteration var="item" items="{!v.options}">
+            <option text="{!item.label}" value="{!item.value}" selected="{!item.selected}"/>
+        </aura:iteration>
+    </lightning:select>
+    </div>
+    <div class="slds-p-bottom_large">
+        <lightning:overlayLibrary aura:id="overlayLib"/>
+        <aura:if isTrue="{!not(empty(v.selectedChapterId))}">
+            <lightning:button label="Expand"
+                              iconName="utility:expand"
+                              iconPosition="left"
+                              variant="neutral"
+                              type="button"
+                              onclick="{!c.expandChapter}"
+            />
+        </aura:if>
+        <aura:if isTrue="{!and(v.documentation.isUpdateable,not(empty(v.selectedChapterId)))}">
+            <lightning:button label="Edit"
+                              iconName="utility:edit"
+                              iconPosition="left"
+                              variant="neutral"
+                              type="button"
+                              onclick="{!c.editChapter}"
+            />
+        </aura:if>
+        <aura:if isTrue="{!v.documentation.isCreateable}">
+            <lightning:button label="New"
+                              iconName="utility:new"
+                              iconPosition="left"
+                              variant="neutral"
+                              type="button"
+                              onclick="{!c.createChapter}"
+            />
+        </aura:if>
+        <aura:if isTrue="{!and(v.documentation.isDeletable,not(empty(v.selectedChapterId)))}">
+            <lightning:button label="Delete"
+                              iconName="utility:delete"
+                              iconPosition="left"
+                              variant="destructive"
+                              type="submit"
+                              onclick="{!c.deleteChapter}"
+            />
+        </aura:if>
+    </div>
+    <div class="slds-border_left slds-border_right slds-border_bottom slds-border_top">
+        <eins_help:DocumentationChapter aura:id="chapterViewer" chapterId="{!v.selectedChapterId}" editable="false" />
+    </div>
+    <div class="slds-spinner_container slds-hide" aura:id="spinner">
+        <div class="slds-spinner--brand slds-spinner slds-spinner--medium" aria-hidden="false" role="alert">
+            <div class="slds-spinner__dot-a"></div>
+            <div class="slds-spinner__dot-b"></div>
+        </div>
+    </div>
+</aura:component>

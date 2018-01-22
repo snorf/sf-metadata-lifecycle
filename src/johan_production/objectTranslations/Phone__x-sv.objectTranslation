@@ -10,22 +10,5 @@
         <plural>true</plural>
         <value>Phones</value>
     </caseValues>
-    <fields>
-        <label><!-- Brand --></label>
-        <name>Brand__c</name>
-    </fields>
-    <fields>
-        <label><!-- ID --></label>
-        <name>ID__c</name>
-    </fields>
-    <fields>
-        <label><!-- PhoneNumber --></label>
-        <name>PhoneNumber__c</name>
-    </fields>
-    <fields>
-        <label><!-- UUID --></label>
-        <name>UUID__c</name>
-        <relationshipLabel><!-- Phones --></relationshipLabel>
-    </fields>
     <gender>Neuter</gender>
 </CustomObjectTranslation>

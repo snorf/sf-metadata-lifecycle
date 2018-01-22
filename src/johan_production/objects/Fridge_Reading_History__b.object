@@ -46,6 +46,18 @@
         <required>true</required>
         <type>DateTime</type>
     </fields>
+    <indexes>
+        <fullName>FridgeReadingHistoryIndex</fullName>
+        <fields>
+            <name>DeviceId__c</name>
+            <sortDirection>DESC</sortDirection>
+        </fields>
+        <fields>
+            <name>ts__c</name>
+            <sortDirection>DESC</sortDirection>
+        </fields>
+        <label>FridgeReadingHistoryIndex</label>
+    </indexes>
     <label>Fridge Reading History</label>
     <pluralLabel>Fridge Readings History</pluralLabel>
 </CustomObject>

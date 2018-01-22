@@ -1,0 +1,18 @@
+<apex:page controller="yk.Log">
+<apex:form >
+  <apex:pageBlock title="YubiKey Authentication Log">
+      <apex:pageblockTable value="{!logEntries}" var="logEntry">
+          <apex:column headerValue="Time">{!logEntry.createdDate}</apex:column>
+          <apex:column headerValue="User">{!logEntry.yk__User__c}</apex:column>
+          <apex:column headerValue="OTP Entered">{!logEntry.yk__OTPentered__c}</apex:column>
+          <apex:column headerValue="Outcome">{!logEntry.yk__Outcome__c}</apex:column>
+      </apex:pageblockTable>
+      
+          <apex:pageBlockButtons >
+             <apex:commandButton action="{!clear}" value="Clear"/>
+             <apex:outputLink styleClass="btn" style="text-decoration: none;" value="{! $Page.Settings}">Back</apex:outputLink>
+          </apex:pageBlockButtons>
+      
+  </apex:pageBlock>
+</apex:form>
+</apex:page>

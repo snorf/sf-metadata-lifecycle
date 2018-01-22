@@ -1,0 +1,31 @@
+<apex:page controller="yk.RegisterNewYubikeyController" title="Assign new YubiKey">
+  <style type="text/css">
+      input[type=text] {
+          padding: 3px 0px 3px 3px;
+          margin: 5px 1px 3px 0px;
+          border: 1px solid #DDDDDD;
+      }
+      input[type=text]:focus {
+          box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+          padding: 3px 0px 3px 3px;
+          margin: 5px 1px 3px 0px;
+          border: 1px solid rgba(81, 203, 238, 1);
+      }
+  </style>
+  <apex:pageMessages />
+  
+  <apex:form >
+  <apex:pageBlock title="Assign new YubiKey for {!userName}">
+      
+      <p>Insert a YubiKey into a USB port and touch its button:</p>
+      
+      <apex:inputText value="{!yubikeyId}" size="12" maxlength="12" style="font-size: 250%;"/>
+      
+      <apex:pageblockButtons >
+          <apex:commandButton action="{!register}" value="Confirm"/>
+          <apex:commandButton value="Cancel" action="{!goToPersonalKeyManagement}"/>
+      </apex:pageblockButtons>
+    
+  </apex:pageBlock>
+  </apex:form>
+</apex:page>

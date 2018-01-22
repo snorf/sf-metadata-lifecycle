@@ -1,0 +1,9 @@
+<!--
+ - Created by Johan Karlsteen on 2017-10-13.
+ -->
+
+<aura:event type="COMPONENT" description="ChapterUpdatedEvent">
+    <aura:attribute name="chapterId" type="Id"/>
+    <aura:attribute name="chapterTitle" type="String"/>
+    <aura:attribute name="order" type="Integer"/>
+</aura:event>

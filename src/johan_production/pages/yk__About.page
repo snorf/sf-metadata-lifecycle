@@ -1,0 +1,17 @@
+<apex:page controller="yk.AboutController">
+  <apex:form >
+  <apex:pageBlock title="About">
+      <apex:pageBlockSection >
+          <apex:outputLabel value="Client ID"/>
+          <apex:outputText value="{!clientId}"/>
+          <apex:outputLabel value="Copyright"/>
+          <apex:outputText value="Copyright 2014 Yubico AB"/>
+          <apex:outputLink value="{! $Page.EULA}">EULA</apex:outputLink>
+      </apex:pageBlockSection>
+      
+      <apex:pageBlockButtons >
+          <c:LinkButton link="{! $Page.Settings}" caption="Back"/>
+      </apex:pageBlockButtons>
+  </apex:pageBlock>
+  </apex:form>
+</apex:page>

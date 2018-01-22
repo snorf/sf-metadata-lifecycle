@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EventSubscription xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>false</active>
+    <eventType>Fridge_Reading__e</eventType>
+    <referenceData>Fridge_Reading_Platform_Event_3</referenceData>
+</EventSubscription>

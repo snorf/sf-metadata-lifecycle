@@ -1,0 +1,21 @@
+<apex:page title="Help - Global Settings">
+<apex:pageBlock title="Global Settings Help">
+<apex:pageBlockSection >
+The Global Settings section contains the options which effect YubiKeys across the entire Salesforce Deployment. These settings can be modified by clicking the button labeled <em>Edit</em>.
+</apex:pageBlockSection>
+
+<apex:pageBlockSection >
+<b>Enable YubiKey Authentication:</b> Master switch for enabling the YubiKey authentication on the Salesforce for profiles associated with a YubiKey <a href="/0Kq?setupid=LoginFlow">Login Flow</a>. Disabling this option will also disable the Self-Provisioning and Bypass YubiKey options.
+</apex:pageBlockSection>
+ 
+<apex:pageBlockSection >
+<b>Allow Self-Provisioning:</b> This option allows for users in profiles associated with a YubiKey <a href="/0Kq?setupid=LoginFlow">Login Flow</a> to personally assign a YubiKey to their account when logging in with the YubiKey for the first time. When enabled, users can log in with just their Username and Password with the option to add a valid YubiKey by entering a One-Time Password from that YubiKey at each login attempt. After a YubiKey is added to a userâ€™s account, it will be required from that point forward.
+If this option is disabled, Users will not be able to log into their accounts without entering a One-Time Password from a YubiKey assigned to their account by an administrator.
+</apex:pageBlockSection>
+
+<apex:pageBlockSection > 
+<b>Bypass YubiKey authentication when logging in from a trusted IP address:</b> When enabled, the Bypass option allows for users to login without supplying a One Time Password from a YubiKey Associated with that account when logging in from a trusted IP address, as <a href="/05G?setupid=NetworkAccess">defined in Salesforce</a>. If Self-Provisioning is enabled, Users will still be prompted to assign a YubiKey to their account if they have not already done so upon each login.
+If disabled, users will always be required to enter a One-Time Password from their YubiKey each time they log on.
+</apex:pageBlockSection>
+</apex:pageBlock>
+</apex:page>

@@ -10,25 +10,5 @@
         <plural>true</plural>
         <value>Fridge Readings</value>
     </caseValues>
-    <fields>
-        <label><!-- DeviceId --></label>
-        <name>DeviceId__c</name>
-    </fields>
-    <fields>
-        <label><!-- Door --></label>
-        <name>Door__c</name>
-    </fields>
-    <fields>
-        <label><!-- Humidity --></label>
-        <name>Humidity__c</name>
-    </fields>
-    <fields>
-        <label><!-- Temperature --></label>
-        <name>Temperature__c</name>
-    </fields>
-    <fields>
-        <label><!-- ts --></label>
-        <name>ts__c</name>
-    </fields>
     <gender>Neuter</gender>
 </CustomObjectTranslation>

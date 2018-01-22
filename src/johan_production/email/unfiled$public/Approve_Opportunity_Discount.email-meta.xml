@@ -6,4 +6,5 @@
     <style>none</style>
     <subject>Please approve this discounted opportunity.</subject>
     <type>text</type>
+    <uiType>Aloha</uiType>
 </EmailTemplate>

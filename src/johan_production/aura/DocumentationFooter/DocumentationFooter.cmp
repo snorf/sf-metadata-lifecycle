@@ -1,0 +1,16 @@
+<!--
+ - Created by Johan Karlsteen on 2017-10-18.
+ -->
+
+<aura:component description="DocumentationFooter">
+    <aura:attribute name="editable" type="Boolean" />
+    <lightning:overlayLibrary aura:id="overlayLib"/>
+    <aura:registerEvent name="chapterSaveEvent" type="eins_help:ChapterSaveEvent"/>
+    <aura:if isTrue="{!v.editable}">
+        <lightning:button name="save" label="Save" onclick="{!c.handleSave}"/>
+        <lightning:button name="cancel" label="Cancel" onclick="{!c.handleCancel}"/>
+    </aura:if>
+    <aura:if isTrue="{!not(v.editable)}">
+        <lightning:button name="ok" label="OK" variant="brand" onclick="{!c.handleCancel}"/>
+    </aura:if>
+</aura:component>

@@ -10,30 +10,5 @@
         <plural>true</plural>
         <value>Absence Requests</value>
     </caseValues>
-    <fields>
-        <label><!-- Approved --></label>
-        <name>Approved__c</name>
-    </fields>
-    <fields>
-        <label><!-- Duration --></label>
-        <name>Duration__c</name>
-    </fields>
-    <fields>
-        <label><!-- End Date --></label>
-        <name>End_Date__c</name>
-    </fields>
-    <fields>
-        <label><!-- Notes --></label>
-        <name>Notes__c</name>
-    </fields>
-    <fields>
-        <label><!-- Start Date --></label>
-        <name>Start_Date__c</name>
-    </fields>
-    <fields>
-        <label><!-- User --></label>
-        <name>User__c</name>
-        <relationshipLabel><!-- Absence Requests --></relationshipLabel>
-    </fields>
     <gender>Neuter</gender>
 </CustomObjectTranslation>

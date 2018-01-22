@@ -34,6 +34,7 @@
     </actionOverrides>
     <deploymentStatus>InDevelopment</deploymentStatus>
     <description>phone_plan</description>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>false</enableFeeds>
     <enableReports>false</enableReports>
     <enableSearch>true</enableSearch>
