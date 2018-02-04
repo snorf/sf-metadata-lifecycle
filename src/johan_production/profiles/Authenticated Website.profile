@@ -2260,7 +2260,13 @@
     <layout>Product2-Product Layout</layout>
   </layoutAssignments>
   <layoutAssignments>
+    <layout>QuickText-Snabbtext layout</layout>
+  </layoutAssignments>
+  <layoutAssignments>
     <layout>Scorecard-Scorecard Layout</layout>
+  </layoutAssignments>
+  <layoutAssignments>
+    <layout>ScorecardAssociation-Scorecard Association Layout</layout>
   </layoutAssignments>
   <layoutAssignments>
     <layout>ScorecardMetric-Scorecard Metric Layout</layout>
@@ -2338,6 +2344,10 @@
     <visibility>DefaultOn</visibility>
   </tabVisibilities>
   <tabVisibilities>
+    <tab>standard-CollaborationGroup</tab>
+    <visibility>DefaultOn</visibility>
+  </tabVisibilities>
+  <tabVisibilities>
     <tab>standard-Contact</tab>
     <visibility>DefaultOn</visibility>
   </tabVisibilities>
@@ -2383,6 +2393,10 @@
   </tabVisibilities>
   <tabVisibilities>
     <tab>standard-Product2</tab>
+    <visibility>DefaultOn</visibility>
+  </tabVisibilities>
+  <tabVisibilities>
+    <tab>standard-QuickText</tab>
     <visibility>DefaultOn</visibility>
   </tabVisibilities>
   <tabVisibilities>

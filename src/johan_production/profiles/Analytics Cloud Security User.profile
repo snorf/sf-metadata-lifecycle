@@ -2232,6 +2232,15 @@
     <allowEdit>false</allowEdit>
     <allowRead>true</allowRead>
     <modifyAllRecords>false</modifyAllRecords>
+    <object>QuickText</object>
+    <viewAllRecords>true</viewAllRecords>
+  </objectPermissions>
+  <objectPermissions>
+    <allowCreate>false</allowCreate>
+    <allowDelete>false</allowDelete>
+    <allowEdit>false</allowEdit>
+    <allowRead>true</allowRead>
+    <modifyAllRecords>false</modifyAllRecords>
     <object>SocialPersona</object>
     <viewAllRecords>true</viewAllRecords>
   </objectPermissions>
@@ -2350,7 +2359,13 @@
     <layout>Product2-Product Layout</layout>
   </layoutAssignments>
   <layoutAssignments>
+    <layout>QuickText-Snabbtext layout</layout>
+  </layoutAssignments>
+  <layoutAssignments>
     <layout>Scorecard-Scorecard Layout</layout>
+  </layoutAssignments>
+  <layoutAssignments>
+    <layout>ScorecardAssociation-Scorecard Association Layout</layout>
   </layoutAssignments>
   <layoutAssignments>
     <layout>ScorecardMetric-Scorecard Metric Layout</layout>
@@ -2428,6 +2443,10 @@
     <visibility>Hidden</visibility>
   </tabVisibilities>
   <tabVisibilities>
+    <tab>standard-CollaborationGroup</tab>
+    <visibility>DefaultOn</visibility>
+  </tabVisibilities>
+  <tabVisibilities>
     <tab>standard-Contact</tab>
     <visibility>DefaultOn</visibility>
   </tabVisibilities>
@@ -2499,6 +2518,10 @@
   <userLicense>Analytics Cloud Integration User</userLicense>
   <userPermissions>
     <enabled>true</enabled>
+    <name>ApexRestServices</name>
+  </userPermissions>
+  <userPermissions>
+    <enabled>true</enabled>
     <name>ApiEnabled</name>
   </userPermissions>
   <userPermissions>
@@ -2520,6 +2543,10 @@
   <userPermissions>
     <enabled>true</enabled>
     <name>ViewEventLogFiles</name>
+  </userPermissions>
+  <userPermissions>
+    <enabled>true</enabled>
+    <name>ViewRoles</name>
   </userPermissions>
   <userPermissions>
     <enabled>true</enabled>
