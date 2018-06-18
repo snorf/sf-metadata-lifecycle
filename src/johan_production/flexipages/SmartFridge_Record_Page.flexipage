@@ -72,6 +72,9 @@
         <type>Region</type>
     </flexiPageRegions>
     <flexiPageRegions>
+        <componentInstances>
+            <componentName>eins_help:Documentation</componentName>
+        </componentInstances>
         <name>facet-d809ffbd-744e-4286-9c4b-20d77a117dd8</name>
         <type>Facet</type>
     </flexiPageRegions>
